@@ -1,0 +1,15 @@
+This package distributes a modified build of VLCKit and libVLC.
+
+VLCKit and libVLC are Copyright (C) the VideoLAN team and contributors, and are licensed
+under the GNU Lesser General Public License, version 2.1 or later (LGPL-2.1-or-later).
+
+The full text of the LGPL v2.1 is available at:
+    https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+
+Modifications by JustFox Labs. The complete corresponding modified source is publicly
+available under the same license at:
+    VLCKit: https://code.videolan.org/JustFox/VLCKit/-/tree/foxiptv-2.0.1
+    libVLC: https://code.videolan.org/JustFox/vlc/-/tree/foxiptv-2.0.1
+
+The thin Swift Package wrapper in this repository (Package.swift) is provided under the same
+terms and imposes no additional restrictions.
