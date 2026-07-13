@@ -10,7 +10,7 @@ switching with the upstream `alpha.20` build.
 ## Usage
 
 ```swift
-.package(url: "https://github.com/JustFoxLabs/vlckit-spm", exact: "4.0.0-alpha.20-fox.1")
+.package(url: "https://github.com/JustFoxLabs/vlckit-spm", exact: "4.0.0-alpha.20-fox.3")
 ```
 
 Then add `VLCKitSPM` as a dependency of your target.
