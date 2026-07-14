@@ -21,10 +21,10 @@ VLCKit and libVLC are licensed under the **GNU Lesser General Public License, ve
 later**. The binary in this package is a **modified** build. In accordance with the LGPL, the
 complete corresponding modified source is publicly available:
 
-- **VLCKit:** https://code.videolan.org/JustFox/VLCKit/-/tree/foxiptv-2.0.1
-- **libVLC:** https://code.videolan.org/JustFox/vlc/-/tree/foxiptv-2.0.1
+- **VLCKit:** https://code.videolan.org/JustFox/VLCKit/-/tree/de66f6da4508d601bf7a2322f4ec6434cd8c17e3
+- **libVLC:** https://code.videolan.org/JustFox/vlc/-/tree/fcbaa21a99c9e2f23aa58e33d1109b3a0a3a1302
 
-The binary is built from those exact tags. It corresponds to upstream libVLC commit
+The binary is built from those exact (immutable) commits. It corresponds to upstream libVLC commit
 `fe6e76a90` plus the patch series `libvlc/patches/0001-0025` applied by VLCKit's
 `compileAndBuildVLCKit.sh` (0025 is the `lib/media_player.c` rapid-zap use-after-free fix),
 together with the `VLCMediaPlayer` meta-changed teardown fix. Both the iOS and tvOS slices are

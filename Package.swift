@@ -10,8 +10,8 @@ import PackageDescription
 // to fox.4 (already shipping in the FoxIPTV iOS app); fox.5 adds the tvOS slices.
 //
 // Modified source (LGPL-2.1-or-later):
-//   VLCKit: https://code.videolan.org/JustFox/VLCKit/-/tree/foxiptv-2.0.1
-//   libVLC: https://code.videolan.org/JustFox/vlc/-/tree/foxiptv-2.0.1
+//   VLCKit: https://code.videolan.org/JustFox/VLCKit/-/tree/de66f6da4508d601bf7a2322f4ec6434cd8c17e3
+//   libVLC: https://code.videolan.org/JustFox/vlc/-/tree/fcbaa21a99c9e2f23aa58e33d1109b3a0a3a1302
 
 let vlcBinary = Target.binaryTarget(
     name: "VLCKit",
