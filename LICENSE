@@ -6,7 +6,7 @@ under the GNU Lesser General Public License, version 2.1 or later (LGPL-2.1-or-l
 Modifications by JustFox Labs. The complete corresponding modified source is publicly
 available under the same license at:
     VLCKit: https://code.videolan.org/JustFox/VLCKit/-/tree/de66f6da4508d601bf7a2322f4ec6434cd8c17e3
-    libVLC: https://code.videolan.org/JustFox/vlc/-/tree/fcbaa21a99c9e2f23aa58e33d1109b3a0a3a1302
+    libVLC: https://code.videolan.org/JustFox/vlc/-/tree/7eb40de9123b223a871e7b620c3516f40a4121de
 
 The thin Swift Package wrapper in this repository (Package.swift) is provided under the same
 terms and imposes no additional restrictions.

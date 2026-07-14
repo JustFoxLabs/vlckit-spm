@@ -5,18 +5,21 @@ import PackageDescription
 // apps (FoxIPTV). This is a MODIFIED build of VLCKit 4.0.0-alpha.20; see README.md for the
 // LGPL notice and the corresponding modified source.
 //
-// fox.5 vends iOS + tvOS slices (device + simulator), with libVLC patches 0001-0025 (the
-// 0025 media_player rapid-zap use-after-free fix included). The iOS slices are identical
-// to fox.4 (already shipping in the FoxIPTV iOS app); fox.5 adds the tvOS slices.
+// fox.6 vends iOS + tvOS slices (device + simulator), with libVLC patches 0001-0025 (incl. the
+// media_player rapid-zap use-after-free fix). fox.6 rebuilds both platforms with NDEBUG defined
+// (release), so libVLC's internal assert()s compile out and degrade gracefully instead of
+// abort()-ing on edge-case streams (e.g. an adaptive-HLS segment-list assert on a live playlist
+// with a sequence gap + zero segment duration). This is a build-flag change over fox.5 (same
+// patch series), so the slices are freshly built with asserts off.
 //
 // Modified source (LGPL-2.1-or-later):
 //   VLCKit: https://code.videolan.org/JustFox/VLCKit/-/tree/de66f6da4508d601bf7a2322f4ec6434cd8c17e3
-//   libVLC: https://code.videolan.org/JustFox/vlc/-/tree/fcbaa21a99c9e2f23aa58e33d1109b3a0a3a1302
+//   libVLC: https://code.videolan.org/JustFox/vlc/-/tree/7eb40de9123b223a871e7b620c3516f40a4121de
 
 let vlcBinary = Target.binaryTarget(
     name: "VLCKit",
-    url: "https://github.com/JustFoxLabs/vlckit-spm/releases/download/4.0.0-alpha.20-fox.5/VLCKit.xcframework.zip",
-    checksum: "473ff695e0bed14836adcb621b630b431220bea2d43da9df10a38e0aac44d02d"
+    url: "https://github.com/JustFoxLabs/vlckit-spm/releases/download/4.0.0-alpha.20-fox.6/VLCKit.xcframework.zip",
+    checksum: "678bab7c9b6f13e19f98e89de426cddcf1c834b245d735bc269aabe18c6a2514"
 )
 
 let package = Package(
