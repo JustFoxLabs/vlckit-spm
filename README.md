@@ -9,11 +9,31 @@ channel switching with the upstream `alpha.20` build.
 
 ## Usage
 
+Add the package to your `Package.swift` dependencies:
+
 ```swift
 .package(url: "https://github.com/JustFoxLabs/vlckit-spm", exact: "4.0.0-alpha.20-fox.6")
 ```
 
-Then add `VLCKitSPM` as a dependency of your target.
+Then add the `VLCKitSPM` product to the target that needs it:
+
+```swift
+.target(
+    name: "YourTarget",
+    dependencies: [
+        .product(name: "VLCKitSPM", package: "vlckit-spm")
+    ]
+)
+```
+
+In Xcode instead: **File > Add Package Dependencies…**, enter the URL above, pin the exact
+version, and add the `VLCKitSPM` library to your app target.
+
+Then import the module in source:
+
+```swift
+import VLCKitSPM
+```
 
 ## License & modified source (LGPL-2.1-or-later)
 
