@@ -2,31 +2,36 @@
 import PackageDescription
 
 // VLCKitSPM - Swift Package distribution of the VLCKit (libVLC) build used by the JustFox
-// apps (FoxIPTV). This is a MODIFIED build of VLCKit 4.0.0-alpha.20; see README.md for the
+// apps (FoxIPTV). This is a MODIFIED build of VLCKit 4.0.0-a24; see README.md for the
 // LGPL notice and the corresponding modified source.
 //
-// fox.6 vends iOS + tvOS slices (device + simulator), with libVLC patches 0001-0025 (incl. the
-// media_player rapid-zap use-after-free fix). fox.6 rebuilds both platforms with NDEBUG defined
-// (release), so libVLC's internal assert()s compile out and degrade gracefully instead of
-// abort()-ing on edge-case streams (e.g. an adaptive-HLS segment-list assert on a live playlist
-// with a sequence gap + zero segment duration). This is a build-flag change over fox.5 (same
-// patch series), so the slices are freshly built with asserts off.
+// fox.1 on the a24 base vends iOS + tvOS slices (device + simulator). It carries three libVLC
+// patches on top of upstream's own series - HTTP auth-struct initialisation, a Picture-in-Picture
+// delegate use-after-free fix, and -DNDEBUG so libVLC's internal assert()s compile out instead of
+// abort()-ing on edge-case streams - plus teardown guards in the VLCKit Objective-C layer.
+//
+// Minimum OS is 15.0 for both platforms, up from 13 in the alpha.20 releases. Xcode 27 refuses to
+// archive below 15.0 (its supported range is 15.0 to 27.0.x), so the binary genuinely requires it -
+// verified with vtool: minos 15.0, sdk 27.0 on every slice.
+//
+// Rebased from the alpha.20 base: upstream absorbed the simulator dup3/pipe2 build fix and the
+// rapid-zap media_player use-after-free, so the local patch count drops from eight to three.
 //
 // Modified source (LGPL-2.1-or-later):
-//   VLCKit: https://code.videolan.org/JustFox/VLCKit/-/tree/de66f6da4508d601bf7a2322f4ec6434cd8c17e3
-//   libVLC: https://code.videolan.org/JustFox/vlc/-/tree/7eb40de9123b223a871e7b620c3516f40a4121de
+//   VLCKit: https://code.videolan.org/JustFox/VLCKit/-/tree/827ebdda348548a956ec4d9c22b2169457720219
+//   libVLC: https://code.videolan.org/JustFox/vlc/-/tree/52e28931920cc5dc3ba2d1a9774e30aa06f7a9a3
 
 let vlcBinary = Target.binaryTarget(
     name: "VLCKit",
-    url: "https://github.com/JustFoxLabs/vlckit-spm/releases/download/4.0.0-alpha.20-fox.6/VLCKit.xcframework.zip",
-    checksum: "678bab7c9b6f13e19f98e89de426cddcf1c834b245d735bc269aabe18c6a2514"
+    url: "https://github.com/JustFoxLabs/vlckit-spm/releases/download/4.0.0-alpha.24-fox.1/VLCKit.xcframework.zip",
+    checksum: "f37b741c46f452993d1f3411e52d2dc2a60ab164ebf3244ed0190fdfd7d74aa6"
 )
 
 let package = Package(
     name: "VLCKitSPM",
     platforms: [
-        .iOS(.v13),
-        .tvOS(.v13)
+        .iOS(.v15),
+        .tvOS(.v15)
     ],
     products: [
         .library(name: "VLCKitSPM", targets: ["VLCKitSPM"])
